@@ -1,6 +1,6 @@
 
  console.log('yi');
-	var test = true; 
+	var test = true; //в рабочем режиме false, в режиме тестировани€ true
 	var dataAddress = {
 		'USD':[
 			'https://apiv2.bitcoinaverage.com/indices/global/ticker/ETHUSD',
@@ -121,30 +121,38 @@ function getData(xhttp, number, test){
 function showData(number, percent, currencySign){
 	//отображаем данные по текущей валюте number индекс данных в массиве currency
 	var myParent = document.getElementById('ourCur');
-	var main = createNewElem('DIV', myParent, 'coinBox');
+	var main = createNewElem('DIV', 'coinBox', myParent);
 	var coinBoxes = document.getElementsByClassName('coinBox');
 	coinBoxes[number].id = currency[number]['name'];
-	var currencyName = createNewElem('H4', main, undefined);
+	var currencyName = createNewElem('H4', '', main);
+	//if(test){console.log('showData: ' + 'number = ' + number)}
 	createTextNode(currencyName, currency[number]['name'] );
-	var priceValue = createNewElem('DIV', main,undefined);
-	var spanEven = createNewElem('SPAN', priceValue, 'even');
+	var priceValue = createNewElem('DIV','', main);
+	var spanEven = createNewElem('SPAN', 'even', priceValue);
 	createTextNode(spanEven, 'price');
-	var spanOdd = createNewElem('SPAN', priceValue, 'odd');
+	var spanOdd = createNewElem('SPAN', 'odd', priceValue);
 	createTextNode(spanOdd, currency[number]['price'] + '' + currencySign);
 	var newButton = createNewButton();
 	main.appendChild(newButton);
 	newButton.onclick = percentToPrice;
 	var i = 0;
 	for(let x in currency[number]['changes'][percent]){
+		/*if(i++ < 3){}
+		else{
+		var listItem = createNewElem('DIV', '', main);
+		var spanEven = createNewElem('SPAN', 'even', listItem);
+		createTextNode(spanEven, x);
+		var spanOdd = createNewElem('SPAN', 'odd', listItem);
+		createTextNode(spanOdd, currency[number][x]);}*/
 		switch(x){
 			case 'hour':;
 			case 'day':;
 			case 'week':;
 			case 'month':{
-				var listItem = createNewElem('DIV',main, undefined);
-				var spanEven = createNewElem('SPAN', listItem, 'even' );
+				var listItem = createNewElem('DIV', '', main);
+				var spanEven = createNewElem('SPAN', 'even', listItem);
 				createTextNode(spanEven, x);
-				var spanOdd = createNewElem('SPAN', listItem, 'odd');
+				var spanOdd = createNewElem('SPAN', 'odd', listItem);
 				createTextNode(spanOdd, currency[number]['changes'][percent][x] + '' + currencySign);
 			}
 			default : break;
@@ -153,7 +161,7 @@ function showData(number, percent, currencySign){
 		
 	
 	
-	
+	//str = 'Ethe ' + currency[0]['price'] + ', Lite ' + currency[1]['price'] + ', Bit '+ currency[2]['price'];
 	
 	
 
@@ -163,29 +171,16 @@ function showData(number, percent, currencySign){
 
 
 /********************************************************************************************************************/
-/* Create elements */
-	//‘ункци€ создает новый элемент tagName который задан первым параметром
-	//и присоеден€ет его последним в родительский элемент который задаетс€ вторым параметром
+/* Create elements*/
+
+	//‘ункци€ создает новый элемент tagName которого заданый первым параметром
+	//и присоеден€ет еЄ последним в родительский элемент который задаетс€ вторым параметром
 	//ѕри необходимости назначает элементу им€ класса который передаетс€ третьим параметром, если параметр //отсутствует им€ класса не назначаетс€.
 	//ѕри необходимости назначает им€ ID который передаетс€ четвертым параметром
 	//≈сли первые два параметра не указаные - функци€ возвращает null(нечего создать и некуда присоедин€ть)
-	function createNewElem(){
-		if(arguments.length < 2){
-			console.log('createNewElem: нет данных дл€ создани€ элемента');
-			return null;
-		}else{
-			var elem = document.createElement(arguments[0]);
-			var myParent = arguments[1];
-			myParent.appendChild(elem);
-				if((arguments.length > 3)&&(arguments[3] != undefined)){
-					elem.id = arguments[3]
-				}else;
-				if((arguments.length > 2) && (arguments[2] != undefined)){
-					elem.className = arguments[2];
-				}else;
-		};
-		 
-	
+	function createNewElem(myElement, myClass, myParent){
+	var elem = document.createElement(myElement);
+	myParent.appendChild(elem);
 	elem.className = myClass;
 	return elem;
 }
