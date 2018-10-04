@@ -1,6 +1,6 @@
 
  console.log('yi');
-	var test = true; //в рабочем режиме false, в режиме тестирования true
+	var test = true; 
 	var dataAddress = {
 		'USD':[
 			'https://apiv2.bitcoinaverage.com/indices/global/ticker/ETHUSD',
