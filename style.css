@@ -1,0 +1,253 @@
+body{
+	background-image:url('img/headImg.png');
+	background-color:#1b232b;
+	background-repeat:no-repeat;
+	font-family: 'Roboto', sans-serif;
+	color:#fff;
+}
+
+.wrapper{
+	width:90%;
+	max-width:986px;
+	margin:0 auto;
+}
+
+.selecting{
+	display:block;
+	width:100%;
+	/*max-width:986px;*/
+	height:98px;
+	border:1px solid rgba(148, 232, 254, 0.1);
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	margin:64px auto 71px auto;
+	background:rgba(255, 255, 255, 0.02);
+	
+}
+
+.selecting h3{
+	display:block;
+	color:#fff;
+	font-size:2em;
+	font-weight:500;
+	margin-left:13.48%;
+	float:left;
+}
+/*
+.selecting p{
+	display:block;
+	color:#fff;
+	font-size:1em;
+	font-weight:300;
+	margin-left:17px;	
+	float:left;
+}
+*/
+.currencySelection{
+	display:block;
+	cursor:pointer;
+	width:29.92%;
+	height:54.09%;
+	border:1px solid rgba(148, 232, 254, 1);
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	-o-border-radius:3px;
+	float:right;
+	margin:20px 23px 0 0;
+	vertical-align:center;
+	/*position:absolute;
+	top:0;
+	right:0;*/
+}
+
+.currencySelection div{
+	display:block;
+	color:#fff;
+	font-size:1em;
+	font-weight:300;
+	margin-left:17px;	
+	float:left;
+	line-height:55px;
+}
+
+.currencySelect{
+	position:relative;
+	z-index:10;
+	cursor:pointer;
+	width:297px;
+	height:94px;
+	border:1px solid rgba(148, 232, 254, 1);
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	-o-border-radius:3px;
+	float:right;
+	margin:10px 23px 0 0;
+	vertical-align:center;
+	background-color:#1b232b;
+	/*position:absolute;
+	top:0;
+	right:0;*/
+
+}
+
+#test{
+	visibility:hidden;
+	
+}
+
+.chosenCurrency{
+	display:block;
+	color:#fff;
+	font-size:1em;
+	font-weight:300;
+	margin-left:17px;	
+	float:left;
+	line-height:55px;
+	clear:both;
+}
+
+.currencySelect div{
+	display:block;
+	color:#fff;
+	font-size:1em;
+	font-weight:300;
+	margin-left:17px;	
+	float:left;
+	line-height:30px;
+	clear:both;
+}
+
+.arrow{
+	width:11px;
+	height:7px;
+	background-image:url('img/arrow.png');
+	background-repeat:no-repeat;
+	float:right;
+	margin: 24px 13px 0 0;
+}
+
+.coinBox{
+	width:248px;
+	height:354px;
+	border-radius:7px;
+	-webkit-border-radius:7px;
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	padding: 0 30px;
+
+}
+
+
+
+#Ethereum{
+	float:left;
+	background-color:#2d4934;
+	background-image:url(img/eCoinBg.png);
+}
+
+#Litecoin{
+	margin-left:30px;
+	float:left;
+	background-image:url(img/lCoinBg.png);
+
+}
+
+#Bitcoin{
+	position:relative;
+	z-index:3;
+	float:right;
+	background-color:#301103;
+	background-image:url(img/bCoinBg.png);
+}
+
+.coinBox h4{
+	margin-bottom:170px;
+	font-size:1.3em;
+	color:#fff;
+	text-align:center;
+}
+
+ul{
+	display:block;
+	list-style:none;
+	/*width:248px;*/
+	font-weight:900;
+}
+
+li{
+	display:block;
+	padding:0;
+	margin:0;
+	width:248px;
+	height:10px;
+}
+
+.even{
+	display:block;
+	float:left;
+	clear:both;
+	color:rgba(255, 255, 255, 0.2);
+	font-size:0.875em;
+
+}
+.odd{
+	display:block;
+	float:right;
+	color:rgb(112, 196, 70);
+	font-size:1em;
+}
+
+.colorWhite{
+	color:white;
+}
+
+
+
+.price{
+	font-size:1.25em;
+	color:white;
+}
+
+.nom{
+	font-size:1.33em;
+	color:white;
+}
+
+.etBgOne{
+	background-image:url('img/radioOn.png');
+}
+
+.etBgTwo{
+	background-image:url('img/radioOff.png');
+}
+
+.myButtonsPercent{
+	display:block;
+	width:45px;
+	height:24px;
+	background-image:url('img/radioOn.png');
+	background-color:rgba(255,255,255,0);
+	border:rgba(255,255,255,0);
+}
+
+@media (max-width: 500px) {
+    #Bitcoin{
+		clear:both;
+		float:none;
+		margin-top:30px;
+	}
+	
+	#Litecoin{
+		float:none;
+		margin-left:0;
+		
+	}
+	
+	.wrapper{
+		width:650px;
+	}
+}
