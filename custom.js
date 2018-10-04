@@ -121,38 +121,30 @@ function getData(xhttp, number, test){
 function showData(number, percent, currencySign){
 	//отображаем данные по текущей валюте number индекс данных в массиве currency
 	var myParent = document.getElementById('ourCur');
-	var main = createNewElem('DIV', 'coinBox', myParent);
+	var main = createNewElem('DIV', myParent, 'coinBox');
 	var coinBoxes = document.getElementsByClassName('coinBox');
 	coinBoxes[number].id = currency[number]['name'];
-	var currencyName = createNewElem('H4', '', main);
-	//if(test){console.log('showData: ' + 'number = ' + number)}
+	var currencyName = createNewElem('H4', main, undefined);
 	createTextNode(currencyName, currency[number]['name'] );
-	var priceValue = createNewElem('DIV','', main);
-	var spanEven = createNewElem('SPAN', 'even', priceValue);
+	var priceValue = createNewElem('DIV', main,undefined);
+	var spanEven = createNewElem('SPAN', priceValue, 'even');
 	createTextNode(spanEven, 'price');
-	var spanOdd = createNewElem('SPAN', 'odd', priceValue);
+	var spanOdd = createNewElem('SPAN', priceValue, 'odd');
 	createTextNode(spanOdd, currency[number]['price'] + '' + currencySign);
 	var newButton = createNewButton();
 	main.appendChild(newButton);
 	newButton.onclick = percentToPrice;
 	var i = 0;
 	for(let x in currency[number]['changes'][percent]){
-		/*if(i++ < 3){}
-		else{
-		var listItem = createNewElem('DIV', '', main);
-		var spanEven = createNewElem('SPAN', 'even', listItem);
-		createTextNode(spanEven, x);
-		var spanOdd = createNewElem('SPAN', 'odd', listItem);
-		createTextNode(spanOdd, currency[number][x]);}*/
 		switch(x){
 			case 'hour':;
 			case 'day':;
 			case 'week':;
 			case 'month':{
-				var listItem = createNewElem('DIV', '', main);
-				var spanEven = createNewElem('SPAN', 'even', listItem);
+				var listItem = createNewElem('DIV',main, undefined);
+				var spanEven = createNewElem('SPAN', listItem, 'even' );
 				createTextNode(spanEven, x);
-				var spanOdd = createNewElem('SPAN', 'odd', listItem);
+				var spanOdd = createNewElem('SPAN', listItem, 'odd');
 				createTextNode(spanOdd, currency[number]['changes'][percent][x] + '' + currencySign);
 			}
 			default : break;
@@ -161,7 +153,7 @@ function showData(number, percent, currencySign){
 		
 	
 	
-	//str = 'Ethe ' + currency[0]['price'] + ', Lite ' + currency[1]['price'] + ', Bit '+ currency[2]['price'];
+	
 	
 	
 
